@@ -1,10 +1,14 @@
 import Realm from 'realm'
+
+//First I create these tables in Realm and then import them here.
 import Account from '../Realm/models/account'
 import Category from '../Realm/models/category'
 import Currency from '../Realm/models/currency'
 import Income from '../Realm/models/income'
 import Outcome from '../Realm/models/outcome'
 
+
+// initializing the realm object
 const realm = new Realm({
   schema:[
     Account,
@@ -15,6 +19,8 @@ const realm = new Realm({
   ]
 });
 
+
+//this class will delete with the create, update or delete method.
 class StorageManager {
 
   createOrUpdate(tableName, row, update=false){
@@ -34,4 +40,5 @@ class StorageManager {
   }
 }
 
+//it will be used in the base class
 export default StorageManager;
